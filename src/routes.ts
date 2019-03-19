@@ -24,8 +24,9 @@ export const register = (app: express.Application) => {
     const page = box.getPage(pageName);
     if (!page) {
       res.status(404);
-      res.setHeader("Content-TYpe", "textp/plain; charset=UTF-8");
-      res.end(`Page ${pageName} is not found`);
+      res.setHeader("Content-Type", "text/plain; charset=UTF-8");
+      res.send(`Page ${pageName} is not found`);
+      return;
     }
     res.render("page", { box, page });
   });
