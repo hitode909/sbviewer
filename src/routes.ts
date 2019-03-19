@@ -13,7 +13,7 @@ export const register = (app: express.Application) => {
     res.render("index", { box });
   });
 
-  app.get(/^\/pages\/(.+)$/, (req, res) => {
+  app.get(/^\/(.+)$/, (req, res) => {
     const pageName: string = req.params[0];
     const page = box.getPage(pageName);
     if (!page) {

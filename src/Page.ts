@@ -18,7 +18,7 @@ export class Page implements IPage {
   }
 
   public path(): string {
-    return `/pages/${this.title}`;
+    return `/${this.title}`;
   }
 
   public updatedAt(): Date {
