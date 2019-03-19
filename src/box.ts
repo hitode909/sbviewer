@@ -1,18 +1,5 @@
 import fs from "fs";
-
-interface IPage {
-  title: string;
-  created: number;
-  updated: number;
-  lines: string[];
-}
-
-interface IPages {
-  name: string;
-  displayName: string;
-  exported: number;
-  pages: IPage[];
-}
+import { IPages, Page } from "./Page";
 
 export default class Box {
   public readonly filename: string;
@@ -33,7 +20,11 @@ export default class Box {
     return new Date(this.json.exported * 1000);
   }
 
-  public pages(): string[] {
-    return this.json.pages.sort((a, b) => b.updated - a.updated).map((p) => p.title);
+  public pages(): Page[] {
+    return this.json.pages.sort((a, b) => b.updated - a.updated).map((p) => new Page(p));
+  }
+
+  public getPage(pageName: string): Page|undefined {
+    return this.pages().find((p) => p.title === pageName);
   }
 }

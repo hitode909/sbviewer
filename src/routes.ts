@@ -12,4 +12,14 @@ export const register = (app: express.Application) => {
   app.get("/", (req, res) => {
     res.render("index", { box });
   });
+
+  app.get(/^\/pages\/(.+)$/, (req, res) => {
+    const pageName: string = req.params[0];
+    const page = box.getPage(pageName);
+    if (!page) {
+      res.status(404);
+      res.end(`Page ${pageName} is not found`);
+    }
+    res.render("page", { box, page });
+  });
 };

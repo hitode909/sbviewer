@@ -3,22 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%= box.name() %></title>
+    <title><%= page.title %> - <%= box.name() %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <div class="container">
-        <h1 class="header"><%= box.name() %></h1>
-        <p>exported at <%= box.exportedAt() %></p>
-        <ul>
-          <% box.pages().forEach((page) => { %>
-            <li>
-              <a href="<%= page.path() %>"><%= page.title %></a>
-            </li>
-          <% }); %>
-        </ul>
+        <a href="/">back to index</a>
+        <h1 class="header"><%= page.title %></h1>
+        <pre>updated at <%= page.updatedAt() %></pre>
+        <% page.lines.forEach((line) => { %>
+          <%= line %><br>
+        <% }); %>
     </div>
 </body>
 </html>
