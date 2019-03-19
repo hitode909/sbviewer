@@ -29,11 +29,13 @@ export class Page implements IPage {
   }
 
   public markdown(): string {
-    return sb2md.convert(this.lines.join("\n"));
+    return sb2md.convert([...this.lines].splice(1).join("\n"));
   }
 
   public html(): string {
-    const converter = new showdown.Converter();
+    const converter = new showdown.Converter({
+      simplifiedAutoLink: true,
+    });
     return converter.makeHtml(this.markdown());
   }
 }
