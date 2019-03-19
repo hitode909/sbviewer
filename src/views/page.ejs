@@ -13,9 +13,7 @@
         <a href="/">back to index</a>
         <h1 class="header"><%= page.title %></h1>
         <pre>updated at <%= page.updatedAt() %></pre>
-        <% page.lines.forEach((line) => { %>
-          <%= line %><br>
-        <% }); %>
+        <%- page.html() %>
     </div>
 </body>
 </html>

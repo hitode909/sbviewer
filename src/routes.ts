@@ -13,11 +13,18 @@ export const register = (app: express.Application) => {
     res.render("index", { box });
   });
 
+  // XXX: sb2md appends links to `.md`...
+  app.get(/^\/(.+).md$/, (req, res) => {
+    const pageName: string = req.params[0];
+    res.redirect(`/${pageName}`);
+  });
+
   app.get(/^\/(.+)$/, (req, res) => {
     const pageName: string = req.params[0];
     const page = box.getPage(pageName);
     if (!page) {
       res.status(404);
+      res.setHeader("Content-TYpe", "textp/plain; charset=UTF-8");
       res.end(`Page ${pageName} is not found`);
     }
     res.render("page", { box, page });

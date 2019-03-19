@@ -1,3 +1,6 @@
+import sb2md from "sb2md";
+import * as showdown from "showdown";
+
 interface IPage {
   title: string;
   created: number;
@@ -23,6 +26,15 @@ export class Page implements IPage {
 
   public updatedAt(): Date {
     return new Date(this.updated * 1000);
+  }
+
+  public markdown(): string {
+    return sb2md.convert(this.lines.join("\n"));
+  }
+
+  public html(): string {
+    const converter = new showdown.Converter();
+    return converter.makeHtml(this.markdown());
   }
 }
 export interface IPages {
