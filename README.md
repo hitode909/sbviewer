@@ -13,6 +13,10 @@
 % PAGES_JSON=~/Downloads/hitode909.json npm run dev
 ```
 
+[![Image from Gyazo](https://i.gyazo.com/7bfd1efbe7363b0c335143d354a9ab53.png)](https://gyazo.com/7bfd1efbe7363b0c335143d354a9ab53)
+
+[![Image from Gyazo](https://i.gyazo.com/f7302e695d91398367754b3de5354ea6.png)](https://gyazo.com/f7302e695d91398367754b3de5354ea6)
+
 ## 今後の展望
 
 - サーバーサイドでやるんじゃなくてPWAとして実装してオフラインでも見れるエクスポートしたJSONビューワにする
