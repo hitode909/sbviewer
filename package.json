@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "sb2md": "^1.0.1",
     "showdown": "^1.9.0"
   },
